@@ -1,9 +1,9 @@
 .DS_Store
-node_modules/
-platforms/
-dist/
 .idea
 .temp
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+node_modules/
+platforms/
+dist/

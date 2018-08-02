@@ -3,6 +3,27 @@
 */
 
 /**
+ * [当前域名/ip]
+ */
+export const getHost = () => {
+  let host = ''
+  let regex = /https?:\/\/([^/]+)/i
+  let match = weex.config.bundleUrl.match(regex)
+
+  if (typeof match !== 'undefined' && match !== null) {
+    host = match[0]
+  }
+  return host
+}
+
+/**
+ * [当前平台]
+ */
+export const getPlatform = () => {
+  return weex.config.env.platform.toLowerCase()
+}
+
+/**
  * [日期格式化]
  * @param {any}    date   日期
  * @param {string} format 日期格式
@@ -52,47 +73,47 @@ export const dateFormat = (date, format = 'yyyyMMddhhmmss') => {
  * @param {string}   animated  是否开启动画, 默认值为'true'
  * @param {function} callback  跳转后的回调
  */
-export const jumpPage = {
-  push: (option, callback) => {
-    let platform = getPlatform()
-    let url = null
-    let address = option.url
+// export const jumpPage = {
+//   push: (option, callback) => {
+//     let platform = getPlatform()
+//     let url = null
+//     let address = option.url
 
-    if (platform === 'web') {
-      let ars = address.split('.')[0]
-      window.location.href = getHost() + ars + '.html'
-      return
-    }
+//     if (platform === 'web') {
+//       let ars = address.split('.')[0]
+//       window.location.href = getHost() + ars + '.html'
+//       return
+//     }
 
-    let animated = option.animated || 'true'
-    let cb = callback || ''
-    if (platform === 'ios') {
-      let index = weex.config.bundleUrl.indexOf('bundlejs')
-      url = weex.config.bundleUrl.substring(0, index) + 'bundlejs'
-    }
-    if (platform === 'android') {
-      let h = weex.config.bundleUrl.indexOf('dist')
-      url = weex.config.bundleUrl.substring(0, h) + 'dist'
-      navigator.push({
-        url: url + address,
-        animated: animated
-      }, cb)
-      return
-    }
-    navigator.push({
-      url: url + address,
-      animated: animated
-    }, cb)
-  },
-  pop: (option, callback) => {
-    let url = weex.config.bundleUrl
-    if (url.includes('dashboard')) {
-      return
-    }
-    let animated = option ? option.animated ? option.animated : 'true' : 'true'
-    let cb = callback || ''
-    navigator.pop({
-      animated: animated
-    }, cb)
-  }
-}
+//     let animated = option.animated || 'true'
+//     let cb = callback || ''
+//     if (platform === 'ios') {
+//       let index = weex.config.bundleUrl.indexOf('bundlejs')
+//       url = weex.config.bundleUrl.substring(0, index) + 'bundlejs'
+//     }
+//     if (platform === 'android') {
+//       let h = weex.config.bundleUrl.indexOf('dist')
+//       url = weex.config.bundleUrl.substring(0, h) + 'dist'
+//       navigator.push({
+//         url: url + address,
+//         animated: animated
+//       }, cb)
+//       return
+//     }
+//     navigator.push({
+//       url: url + address,
+//       animated: animated
+//     }, cb)
+//   },
+//   pop: (option, callback) => {
+//     let url = weex.config.bundleUrl
+//     if (url.includes('dashboard')) {
+//       return
+//     }
+//     let animated = option ? option.animated ? option.animated : 'true' : 'true'
+//     let cb = callback || ''
+//     navigator.pop({
+//       animated: animated
+//     }, cb)
+//   }
+// }

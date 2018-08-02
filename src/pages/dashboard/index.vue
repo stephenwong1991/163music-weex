@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-      <input class="search" type="text">
-    </div>
   </div>
 </template>
 
@@ -18,6 +15,7 @@ export default {
 }
 
 </script>
+
 <style scoped>
   .search {
     width: 535px;

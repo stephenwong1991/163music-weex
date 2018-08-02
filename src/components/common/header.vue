@@ -1,25 +1,34 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <input class="search" type="text" placeholder="单曲/歌单/电台">
+      <v-image class="icon-mic" src="cm2_topbar_icn_mic@2x.png" @click="mic" />
+      <div class="search-wrapper" @click="search">
+        <v-image class="icon-search" src="cm2_list_icn_search@2x.png" />
+        <text class="search">搜索音乐、视频、歌词、电台</text>
+      </div>
+      <v-image class="icon-playing" src="cm2_topbar_icn_playing@2x.png" @click="playing" />
     </div>
   </div>
 </template>
 
 <script>
+import VImage from './vImage.vue'
+
 export default {
-  data () {
-    return {
-    };
+  components: {
+    VImage
   },
+  methods: {
+    mic () {
 
-  components: {},
+    },
+    search () {
 
-  computed: {},
+    },
+    playing () {
 
-  mounted: {},
-
-  methods: {}
+    }
+  }
 }
 
 </script>
@@ -29,16 +38,44 @@ export default {
   width: 750px;
   height: 100px;
   background-color: #dc4238;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.search {
-  width: 535px;
+
+.icon-mic {
+  width: 56px;
+  height: 56px;
+  margin-right: 35px;
+}
+
+.icon-playing {
+  width: 56px;
+  height: 56px;
+  margin-left: 35px;
+}
+
+.icon-search {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.search-wrapper {
+  width: 534px;
   height: 60px;
-  border: none;
-  color: #999999;
-  background-color: #FFFFFF;
+  line-height: 60px;
   text-align: center;
+  background-color: #df645c;
   border-radius: 30px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  font-size: 26px;
+  color: #fcaa9c;
+  text-align: center;
 }
 </style>
