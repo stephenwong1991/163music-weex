@@ -1,4 +1,5 @@
 const CONST = {
+  // tab-bar content
   tabTitles: [
     {
       title: '发现',
@@ -34,10 +35,10 @@ const CONST = {
     activeTitleColor: '#3D3D3D',
     activeBgColor: '#FFFFFF',
     isActiveTitleBold: true,
-    iconWidth: 70,
-    iconHeight: 70,
+    iconWidth: 52,
+    iconHeight: 52,
     width: 160,
-    height: 120,
+    height: 97,
     fontSize: 24,
     textPaddingLeft: 10,
     textPaddingRight: 10
