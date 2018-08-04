@@ -12,70 +12,69 @@
 </template>
 
 <script>
-import VImage from './vImage.vue'
+  import VImage from './vImage.vue'
 
-export default {
-  components: {
-    VImage
-  },
-  methods: {
-    mic () {
-
+  export default {
+    components: {
+      VImage
     },
-    search () {
+    methods: {
+      mic () {
 
-    },
-    playing () {
+      },
+      search () {
 
+      },
+      playing () {
+
+      }
     }
   }
-}
-
 </script>
 
 <style scoped>
-.header-wrapper {
-  width: 750px;
-  height: 100px;
-  background-color: #dc4238;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+  .header-wrapper {
+    width: 750px;
+    height: 100px;
+    background-color: #dc4238;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-.icon-mic {
-  width: 56px;
-  height: 56px;
-  margin-right: 35px;
-}
+  .icon-mic {
+    width: 56px;
+    height: 56px;
+    margin-right: 35px;
+  }
 
-.icon-playing {
-  width: 56px;
-  height: 56px;
-  margin-left: 35px;
-}
+  .icon-playing {
+    width: 56px;
+    height: 56px;
+    margin-left: 35px;
+  }
 
-.icon-search {
-  width: 24px;
-  height: 24px;
-  margin-right: 15px;
-}
+  .icon-search {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+  }
 
-.search-wrapper {
-  width: 534px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  background-color: #df645c;
-  border-radius: 30px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+  .search-wrapper {
+    width: 534px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #df645c;
+    border-radius: 30px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
-.search {
-  font-size: 26px;
-  color: #fcaa9c;
-  text-align: center;
-}
+  .search {
+    font-size: 26px;
+    color: #fcaa9c;
+    text-align: center;
+  }
 </style>

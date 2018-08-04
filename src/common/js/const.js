@@ -1,0 +1,47 @@
+const CONST = {
+  tabTitles: [
+    {
+      title: '发现',
+      icon: 'tabBar/cm4_btm_icn_discovery@2x.png',
+      activeIcon: 'tabBar/cm4_btm_icn_discovery_prs@2x.png'
+    },
+    {
+      title: '视频',
+      icon: 'tabBar/cm4_btm_icn_video_new@2x.png',
+      activeIcon: 'tabBar/cm4_btm_icn_video_new_prs@2x.png'
+    },
+    {
+      title: '我的',
+      icon: 'tabBar/cm4_btm_icn_music_new@2x.png',
+      activeIcon: 'tabBar/cm4_btm_icn_music_new_prs@2x.png'
+      // badge: 5
+    },
+    {
+      title: '朋友',
+      icon: 'tabBar/cm4_btm_icn_friend@2x.png',
+      activeIcon: 'tabBar/cm4_btm_icn_friend_prs@2x.png'
+      // dot: true
+    },
+    {
+      title: '账号',
+      icon: 'tabBar/cm4_btm_icn_account@2x.png',
+      activeIcon: 'tabBar/cm4_btm_icn_account_prs@2x.png'
+    }
+  ],
+  tabStyles: {
+    bgColor: '#FFFFFF',
+    titleColor: '#666666',
+    activeTitleColor: '#3D3D3D',
+    activeBgColor: '#FFFFFF',
+    isActiveTitleBold: true,
+    iconWidth: 70,
+    iconHeight: 70,
+    width: 160,
+    height: 120,
+    fontSize: 24,
+    textPaddingLeft: 10,
+    textPaddingRight: 10
+  }
+}
+
+export default CONST
