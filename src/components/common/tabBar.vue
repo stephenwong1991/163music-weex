@@ -114,149 +114,149 @@
 </style>
 
 <script>
-  import { Utils } from 'weex-ui'
-  import VImage from './vImage.vue'
+import { Utils } from 'weex-ui'
+import VImage from './vImage.vue'
 
-  const dom = weex.requireModule('dom')
-  const animation = weex.requireModule('animation')
+const dom = weex.requireModule('dom')
+const animation = weex.requireModule('animation')
 
-  export default {
-    props: {
-      tabTitles: {
-        type: Array,
-        default: () => []
-      },
-      tabStyles: {
-        type: Object,
-        default: () => ({
-          bgColor: '#FFFFFF',
-          titleColor: '#666666',
-          activeTitleColor: '#3D3D3D',
-          activeBgColor: '#FFFFFF',
-          isActiveTitleBold: true,
-          iconWidth: 70,
-          iconHeight: 70,
-          width: 160,
-          height: 120,
-          fontSize: 24,
-          activeBottomColor: '#FFC900',
-          activeBottomWidth: 120,
-          activeBottomHeight: 6,
-          textPaddingLeft: 10,
-          textPaddingRight: 10
-        })
-      },
-      titleType: {
-        type: String,
-        default: 'icon'
-      },
-      titleUseSlot: {
-        type: Boolean,
-        default: false
-      },
-      isTabView: {
-        type: Boolean,
-        default: true
-      },
-      duration: {
-        type: [Number, String],
-        default: 300
-      },
-      timingFunction: {
-        type: String,
-        default: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-      },
-      wrapBgColor: {
-        type: String,
-        default: '#f2f3f4'
+export default {
+  props: {
+    tabTitles: {
+      type: Array,
+      default: () => []
+    },
+    tabStyles: {
+      type: Object,
+      default: () => ({
+        bgColor: '#FFFFFF',
+        titleColor: '#666666',
+        activeTitleColor: '#3D3D3D',
+        activeBgColor: '#FFFFFF',
+        isActiveTitleBold: true,
+        iconWidth: 70,
+        iconHeight: 70,
+        width: 160,
+        height: 120,
+        fontSize: 24,
+        activeBottomColor: '#FFC900',
+        activeBottomWidth: 120,
+        activeBottomHeight: 6,
+        textPaddingLeft: 10,
+        textPaddingRight: 10
+      })
+    },
+    titleType: {
+      type: String,
+      default: 'icon'
+    },
+    titleUseSlot: {
+      type: Boolean,
+      default: false
+    },
+    isTabView: {
+      type: Boolean,
+      default: true
+    },
+    duration: {
+      type: [Number, String],
+      default: 300
+    },
+    timingFunction: {
+      type: String,
+      default: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+    },
+    wrapBgColor: {
+      type: String,
+      default: '#f2f3f4'
+    }
+  },
+  components: {
+    VImage
+  },
+  data () {
+    return {
+      currentPage: 0,
+      translateX: 0
+    }
+  },
+  created () {
+    const { titleType, tabStyles } = this
+    if (titleType === 'iconFont' && tabStyles.iconFontUrl) {
+      dom.addRule('fontFace', {
+        fontFamily: 'wxcIconFont',
+        src: `url('${tabStyles.iconFontUrl}')`
+      })
+    }
+    this.isIPhoneX = Utils.env.isIPhoneX()
+  },
+  methods: {
+    next () {
+      let page = this.currentPage
+      if (page < this.tabTitles.length - 1) {
+        page++
       }
+      this.setPage(page)
     },
-    components: {
-      VImage
-    },
-    data () {
-      return {
-        currentPage: 0,
-        translateX: 0
+    prev () {
+      let page = this.currentPage
+      if (page > 0) {
+        page--
       }
+      this.setPage(page)
     },
-    created () {
-      const { titleType, tabStyles } = this
-      if (titleType === 'iconFont' && tabStyles.iconFontUrl) {
-        dom.addRule('fontFace', {
-          fontFamily: 'wxcIconFont',
-          src: `url('${tabStyles.iconFontUrl}')`
-        })
-      }
-      this.isIPhoneX = Utils.env.isIPhoneX()
-    },
-    methods: {
-      next () {
-        let page = this.currentPage
-        if (page < this.tabTitles.length - 1) {
-          page++
-        }
-        this.setPage(page)
-      },
-      prev () {
-        let page = this.currentPage
-        if (page > 0) {
-          page--
-        }
-        this.setPage(page)
-      },
-      setPage (page, url = null, animated = true) {
-        if (!this.isTabView) {
-          this.currentPage = page
-          this._animateTransformX(page, animated)
-          this.$emit('wxcTabBarCurrentTabSelected', { page })
-          this.jumpOut(url)
-          return
-        }
-        const previousPage = this.currentPage
-        const currentTabEl = this.$refs[`wxc-tab-title-${page}`][0]
-        const { width } = this.tabStyles
-        const appearNum = parseInt(750 / width)
-        const tabsNum = this.tabTitles.length
-        const offset = page > appearNum ? -(750 - width) / 2 : -width * 2
-        if (appearNum < tabsNum) {
-          (previousPage > appearNum || page > 1) &&
-            dom.scrollToElement(currentTabEl, {
-              offset,
-              animated
-            })
-          page <= 1 &&
-            previousPage > page &&
-            dom.scrollToElement(currentTabEl, {
-              offset: -width * page,
-              animated
-            })
-        }
+    setPage (page, url = null, animated = true) {
+      if (!this.isTabView) {
         this.currentPage = page
         this._animateTransformX(page, animated)
         this.$emit('wxcTabBarCurrentTabSelected', { page })
-      },
-      jumpOut (url) {
-        url && Utils.goToH5Page(url)
-      },
-      _animateTransformX (page, animated) {
-        const { duration, timingFunction } = this
-        const computedDur = animated ? duration : 0.00001
-        const containerEl = this.$refs[`tab-container`]
-        const dist = page * 750
-        animation.transition(
-          containerEl,
-          {
-            styles: {
-              transform: `translateX(${-dist}px)`
-            },
-            duration: computedDur,
-            timingFunction,
-            delay: 0
-          },
-          () => {}
-        )
+        this.jumpOut(url)
+        return
       }
+      const previousPage = this.currentPage
+      const currentTabEl = this.$refs[`wxc-tab-title-${page}`][0]
+      const { width } = this.tabStyles
+      const appearNum = parseInt(750 / width)
+      const tabsNum = this.tabTitles.length
+      const offset = page > appearNum ? -(750 - width) / 2 : -width * 2
+      if (appearNum < tabsNum) {
+        (previousPage > appearNum || page > 1) &&
+          dom.scrollToElement(currentTabEl, {
+            offset,
+            animated
+          })
+        page <= 1 &&
+          previousPage > page &&
+          dom.scrollToElement(currentTabEl, {
+            offset: -width * page,
+            animated
+          })
+      }
+      this.currentPage = page
+      this._animateTransformX(page, animated)
+      this.$emit('wxcTabBarCurrentTabSelected', { page })
+    },
+    jumpOut (url) {
+      url && Utils.goToH5Page(url)
+    },
+    _animateTransformX (page, animated) {
+      const { duration, timingFunction } = this
+      const computedDur = animated ? duration : 0.00001
+      const containerEl = this.$refs[`tab-container`]
+      const dist = page * 750
+      animation.transition(
+        containerEl,
+        {
+          styles: {
+            transform: `translateX(${-dist}px)`
+          },
+          duration: computedDur,
+          timingFunction,
+          delay: 0
+        },
+        () => {}
+      )
     }
   }
+}
 </script>

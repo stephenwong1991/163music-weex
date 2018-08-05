@@ -14,34 +14,34 @@
 </template>
 
 <script>
-  import { Utils } from 'weex-ui'
-  import VTabBar from '../../components/common/tabBar.vue'
-  import CONST from '../../common/js/const.js'
+import { Utils } from 'weex-ui'
+import VTabBar from '../../components/common/tabBar.vue'
+import CONST from '../../common/js/const.js'
 
-  export default {
-    data () {
-      return {
-        tabTitles: CONST.tabTitles,
-        tabStyles: CONST.tabStyles
-      }
-    },
-    components: {
-      VTabBar
-    },
-    created () {
-      const tabPageHeight = Utils.env.getPageHeight()
-      // 如果页面没有导航栏，可以用下面这个计算高度的方法
-      // const tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
-      const { tabStyles } = this
-      this.contentStyle = { height: (tabPageHeight - tabStyles.height) + 'px' }
-    },
-    methods: {
-      wxcTabBarCurrentTabSelected (e) {
-        const index = e.page
-        console.log(index)
-      }
+export default {
+  data () {
+    return {
+      tabTitles: CONST.tabTitles,
+      tabStyles: CONST.tabStyles
+    }
+  },
+  components: {
+    VTabBar
+  },
+  created () {
+    const tabPageHeight = Utils.env.getPageHeight()
+    // 如果页面没有导航栏，可以用下面这个计算高度的方法
+    // const tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
+    const { tabStyles } = this
+    this.contentStyle = { height: (tabPageHeight - tabStyles.height) + 'px' }
+  },
+  methods: {
+    wxcTabBarCurrentTabSelected (e) {
+      const index = e.page
+      console.log(index)
     }
   }
+}
 </script>
 
 <style scoped>

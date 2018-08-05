@@ -1,35 +1,35 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <v-image class="icon-mic" src="cm2_topbar_icn_mic@2x.png" @click="mic" />
+      <v-image class="icon-mic" src="header/cm2_topbar_icn_mic@2x.png" @click="mic" />
       <div class="search-wrapper" @click="search">
-        <v-image class="icon-search" src="cm2_list_icn_search@2x.png" />
+        <v-image class="icon-search" src="header/cm2_list_icn_search@2x.png" />
         <text class="search">搜索音乐、视频、歌词、电台</text>
       </div>
-      <v-image class="icon-playing" src="cm2_topbar_icn_playing@2x.png" @click="playing" />
+      <v-image class="icon-playing" src="header/cm2_topbar_icn_playing@2x.png" @click="playing" />
     </div>
   </div>
 </template>
 
 <script>
-  import VImage from './vImage.vue'
+import VImage from './vImage.vue'
 
-  export default {
-    components: {
-      VImage
+export default {
+  components: {
+    VImage
+  },
+  methods: {
+    mic () {
+
     },
-    methods: {
-      mic () {
+    search () {
 
-      },
-      search () {
+    },
+    playing () {
 
-      },
-      playing () {
-
-      }
     }
   }
+}
 </script>
 
 <style scoped>
