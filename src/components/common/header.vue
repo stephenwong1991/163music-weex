@@ -40,6 +40,9 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
   }
 
   .icon-mic {
@@ -74,7 +77,7 @@ export default {
 
   .search {
     font-size: 26px;
-    color: #fcaa9c;
+    color: #ffaca9;
     text-align: center;
   }
 </style>

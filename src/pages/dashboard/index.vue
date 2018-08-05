@@ -3,12 +3,17 @@
     <v-tab-bar :tab-titles="tabTitles"
                :tab-styles="tabStyles"
                title-type="icon"
+               duration="0"
                @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-      <div class="item-container" :style="contentStyle"><text>发现</text></div>
+      <div class="item-container" :style="contentStyle">
+        <v-find></v-find>
+      </div>
       <div class="item-container" :style="contentStyle"><text>视频</text></div>
       <div class="item-container" :style="contentStyle"><text>我的</text></div>
       <div class="item-container" :style="contentStyle"><text>朋友</text></div>
-      <div class="item-container" :style="contentStyle"><text>账号</text></div>
+      <div class="item-container" :style="contentStyle">
+        <v-account></v-account>
+      </div>
     </v-tab-bar>
   </div>
 </template>
@@ -16,6 +21,8 @@
 <script>
 import { Utils } from 'weex-ui'
 import VTabBar from '../../components/common/tabBar.vue'
+import VFind from '../find/find.vue'
+import VAccount from '../account/account.vue'
 import CONST from '../../common/js/const.js'
 
 export default {
@@ -26,7 +33,9 @@ export default {
     }
   },
   components: {
-    VTabBar
+    VTabBar,
+    VFind,
+    VAccount
   },
   created () {
     const tabPageHeight = Utils.env.getPageHeight()
@@ -47,8 +56,6 @@ export default {
 <style scoped>
   .item-container {
     width: 750px;
-    background-color: #f2f3f4;
-    align-items: center;
-    justify-content: center;
+    background-color: #FFFFFF;
   }
 </style>

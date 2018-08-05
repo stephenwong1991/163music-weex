@@ -53,6 +53,10 @@
   .tab-title-list {
     flex-direction: row;
     justify-content: space-around;
+    /* add */
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #cacac8;
   }
 
   .title-item {

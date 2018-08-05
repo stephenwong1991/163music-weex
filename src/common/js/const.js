@@ -30,10 +30,10 @@ const CONST = {
     }
   ],
   tabStyles: {
-    bgColor: '#FFFFFF',
-    titleColor: '#666666',
-    activeTitleColor: '#3D3D3D',
-    activeBgColor: '#FFFFFF',
+    bgColor: '#f3f3f3',
+    titleColor: '#898c85',
+    activeTitleColor: '#d9324c',
+    activeBgColor: '#f3f3f3',
     isActiveTitleBold: true,
     iconWidth: 52,
     iconHeight: 52,
