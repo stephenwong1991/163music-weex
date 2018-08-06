@@ -2,7 +2,7 @@
   <v-tab-bar :tab-titles="tabTitles"
               :tab-styles="tabStyles"
               title-type="icon"
-              duration="300"
+              duration="0"
               @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
     <div class="item-container" :style="contentStyle">
       <v-find></v-find>

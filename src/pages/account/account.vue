@@ -1,63 +1,67 @@
 <template>
-  <scroller :style="parentStyle" class="account-wrapper">
-    <div class="account-wrapper-list">
-      <wxc-cell v-for="(item, index) in mine"
-              :key="index"
-              :cell-style="cellStyle"
-              :title="item.title"
-              :has-arrow="true"
-              @wxcCellClicked="wxcCellClicked">
-        <v-image class="image"
-              slot="label"
-              :src="item.icon"></v-image>
-        <div slot="value" v-if="index !== mine.length-1" class="cell-bottom"></div>
-      </wxc-cell>
-    </div>
-    <div class="account-wrapper-list">
-      <wxc-cell v-for="(item, index) in vip"
-              :key="index"
-              :cell-style="cellStyle"
-              :title="item.title"
-              :has-arrow="true"
-              @wxcCellClicked="wxcCellClicked">
-        <v-image class="image"
-              slot="label"
-              :src="item.icon"></v-image>
-        <div slot="value" v-if="index !== vip.length-1" class="cell-bottom"></div>
-      </wxc-cell>
-    </div>
-    <div class="account-wrapper-list">
-      <wxc-cell v-for="(item, index) in setting"
-              :key="index"
-              :cell-style="cellStyle"
-              :title="item.title"
-              :has-arrow="true"
-              @wxcCellClicked="wxcCellClicked">
-        <v-image class="image"
-              slot="label"
-              :src="item.icon"></v-image>
-        <div slot="value" v-if="index !== setting.length-1" class="cell-bottom"></div>
-      </wxc-cell>
-    </div>
-    <div class="account-wrapper-list">
-      <wxc-cell v-for="(item, index) in about"
-              :key="index"
-              :cell-style="cellStyle"
-              :title="item.title"
-              :has-arrow="true"
-              @wxcCellClicked="wxcCellClicked">
-        <v-image class="image"
-              slot="label"
-              :src="item.icon"></v-image>
-        <div slot="value" v-if="index !== about.length-1" class="cell-bottom"></div>
-      </wxc-cell>
-    </div>
-  </scroller>
+  <div>
+    <v-header :hasMic="false" :title="'账号'"></v-header>
+    <scroller :style="contentStyle" class="account-wrapper">
+      <div class="account-wrapper-list">
+        <wxc-cell v-for="(item, index) in mine"
+                :key="index"
+                :cell-style="cellStyle"
+                :title="item.title"
+                :has-arrow="true"
+                @wxcCellClicked="wxcCellClicked">
+          <v-image class="image"
+                slot="label"
+                :src="item.icon"></v-image>
+          <div slot="value" v-if="index !== mine.length-1" class="cell-bottom"></div>
+        </wxc-cell>
+      </div>
+      <div class="account-wrapper-list">
+        <wxc-cell v-for="(item, index) in vip"
+                :key="index"
+                :cell-style="cellStyle"
+                :title="item.title"
+                :has-arrow="true"
+                @wxcCellClicked="wxcCellClicked">
+          <v-image class="image"
+                slot="label"
+                :src="item.icon"></v-image>
+          <div slot="value" v-if="index !== vip.length-1" class="cell-bottom"></div>
+        </wxc-cell>
+      </div>
+      <div class="account-wrapper-list">
+        <wxc-cell v-for="(item, index) in setting"
+                :key="index"
+                :cell-style="cellStyle"
+                :title="item.title"
+                :has-arrow="true"
+                @wxcCellClicked="wxcCellClicked">
+          <v-image class="image"
+                slot="label"
+                :src="item.icon"></v-image>
+          <div slot="value" v-if="index !== setting.length-1" class="cell-bottom"></div>
+        </wxc-cell>
+      </div>
+      <div class="account-wrapper-list">
+        <wxc-cell v-for="(item, index) in about"
+                :key="index"
+                :cell-style="cellStyle"
+                :title="item.title"
+                :has-arrow="true"
+                @wxcCellClicked="wxcCellClicked">
+          <v-image class="image"
+                slot="label"
+                :src="item.icon"></v-image>
+          <div slot="value" v-if="index !== about.length-1" class="cell-bottom"></div>
+        </wxc-cell>
+      </div>
+    </scroller>
+  </div>
 </template>
 
 <script>
 import { WxcCell, Utils } from 'weex-ui'
 import Config from './config.js'
+import VHeader from '../../components/common/header.vue'
 import VImage from '../../components/common/vImage.vue'
 
 export default {
@@ -85,7 +89,15 @@ export default {
   },
   components: {
     WxcCell,
+    VHeader,
     VImage
+  },
+  computed: {
+    contentStyle () {
+      return {
+        height: parseInt(this.parentStyle.height) - 100 + 'px'
+      }
+    }
   },
   methods: {
     wxcCellClicked (e) {

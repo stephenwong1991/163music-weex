@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <v-image class="icon-mic" src="header/cm2_topbar_icn_mic@2x.png" @click="mic" />
-      <div class="search-wrapper" @click="search">
+      <v-image v-if="hasMic" class="icon-mic" src="header/cm2_topbar_icn_mic@2x.png" @click="mic" />
+      <text v-if="title" :class="['header-title', !hasMic && 'header-title-margin']">{{ title }}</text>
+      <div v-else class="search-wrapper" @click="search">
         <v-image class="icon-search" src="header/cm2_list_icn_search@2x.png" />
         <text class="search">搜索音乐、视频、歌词、电台</text>
       </div>
@@ -17,6 +18,16 @@ import VImage from './vImage.vue'
 export default {
   components: {
     VImage
+  },
+  props: {
+    hasMic: {
+      type: Boolean,
+      default: true
+    },
+    title: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
     mic () {
@@ -40,6 +51,16 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+  .header-title {
+    width: 534px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  .header-title-margin {
+    margin-left: 91px;
   }
 
   .icon-mic {

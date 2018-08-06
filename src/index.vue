@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { Utils } from 'weex-ui'
 import Dashboard from './pages/dashboard/index.vue'
 
 export default {
