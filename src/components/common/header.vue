@@ -40,9 +40,6 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
   }
 
   .icon-mic {

@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <v-tab-bar :tab-titles="tabTitles"
-               :tab-styles="tabStyles"
-               title-type="icon"
-               duration="300"
-               @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-      <div class="item-container" :style="contentStyle">
-        <v-find></v-find>
-      </div>
-      <div class="item-container" :style="contentStyle"><text>视频</text></div>
-      <div class="item-container" :style="contentStyle"><text>我的</text></div>
-      <div class="item-container" :style="contentStyle"><text>朋友</text></div>
-      <div class="item-container" :style="contentStyle">
-        <v-account></v-account>
-      </div>
-    </v-tab-bar>
-  </div>
+  <v-tab-bar :tab-titles="tabTitles"
+              :tab-styles="tabStyles"
+              title-type="icon"
+              duration="300"
+              @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
+    <div class="item-container" :style="contentStyle">
+      <v-find></v-find>
+    </div>
+    <div class="item-container" :style="contentStyle"><text>视频</text></div>
+    <div class="item-container" :style="contentStyle"><text>我的</text></div>
+    <div class="item-container" :style="contentStyle"><text>朋友</text></div>
+    <div class="item-container" :style="contentStyle">
+      <v-account :parentStyle="contentStyle"></v-account>
+    </div>
+  </v-tab-bar>
 </template>
 
 <script>
@@ -26,6 +24,7 @@ import VAccount from '../account/account.vue'
 import CONST from '../../common/js/const.js'
 
 export default {
+  name: 'dashboard',
   data () {
     return {
       tabTitles: CONST.tabTitles,

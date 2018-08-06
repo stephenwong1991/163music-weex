@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Dashboard :style="contentStyle" />
+    <Dashboard/>
   </div>
 </template>
 
@@ -12,10 +12,6 @@ export default {
   name: 'App',
   components: {
     Dashboard
-  },
-  created () {
-    const tabPageHeight = Utils.env.getPageHeight()
-    this.contentStyle = { height: tabPageHeight + 'px' }
   }
 }
 </script>
