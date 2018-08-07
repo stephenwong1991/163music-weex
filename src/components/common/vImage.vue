@@ -7,6 +7,7 @@
 import { getHost } from '../../common/js/util'
 
 export default {
+  name: 'image',
   props: {
     src: {
       type: String,

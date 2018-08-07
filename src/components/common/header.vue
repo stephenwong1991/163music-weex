@@ -16,6 +16,7 @@
 import VImage from './vImage.vue'
 
 export default {
+  name: 'header',
   components: {
     VImage
   },
