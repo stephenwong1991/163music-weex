@@ -73,47 +73,44 @@ export const dateFormat = (date, format = 'yyyyMMddhhmmss') => {
  * @param {string}   animated  是否开启动画, 默认值为'true'
  * @param {function} callback  跳转后的回调
  */
-// export const jumpPage = {
-//   push: (option, callback) => {
-//     let platform = getPlatform()
-//     let url = null
-//     let address = option.url
+export const jumpIn = (options = { animated: 'true' }, callback = null) => {
+  let navigator = weex.requireModule('navigator')
+  let platform = getPlatform()
+  let address = options.url
+  let [url, index] = []
 
-//     if (platform === 'web') {
-//       let ars = address.split('.')[0]
-//       window.location.href = getHost() + ars + '.html'
-//       return
-//     }
+  if (!address) {
+    let modal = weex.requireModule('modal')
+    modal.toast({ message: '地址错误' })
+    return
+  }
 
-//     let animated = option.animated || 'true'
-//     let cb = callback || ''
-//     if (platform === 'ios') {
-//       let index = weex.config.bundleUrl.indexOf('bundlejs')
-//       url = weex.config.bundleUrl.substring(0, index) + 'bundlejs'
-//     }
-//     if (platform === 'android') {
-//       let h = weex.config.bundleUrl.indexOf('dist')
-//       url = weex.config.bundleUrl.substring(0, h) + 'dist'
-//       navigator.push({
-//         url: url + address,
-//         animated: animated
-//       }, cb)
-//       return
-//     }
-//     navigator.push({
-//       url: url + address,
-//       animated: animated
-//     }, cb)
-//   },
-//   pop: (option, callback) => {
-//     let url = weex.config.bundleUrl
-//     if (url.includes('dashboard')) {
-//       return
-//     }
-//     let animated = option ? option.animated ? option.animated : 'true' : 'true'
-//     let cb = callback || ''
-//     navigator.pop({
-//       animated: animated
-//     }, cb)
-//   }
-// }
+  switch (platform) {
+    case 'web':
+      url = address.split('.')[0]
+      window.location.href = `${getHost()}${url}.html`
+      break
+
+    case 'ios':
+      index = weex.config.bundleUrl.indexOf('bundlejs')
+      url = weex.config.bundleUrl.substring(0, index) + 'bundlejs'
+      navigator.push({
+        url: url + address,
+        animated: options.animated
+      }, callback)
+      break
+
+    case 'android':
+      index = weex.config.bundleUrl.indexOf('dist')
+      url = weex.config.bundleUrl.substring(0, index) + 'dist'
+      navigator.push({
+        url: url + address,
+        animated: options.animated
+      }, callback)
+      break
+  }
+}
+
+export const jumpOut = (option = { animated: 'true' }, callback) => {
+  navigator.pop({ animated: option.animated }, callback)
+}

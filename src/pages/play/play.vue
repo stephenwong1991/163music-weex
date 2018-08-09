@@ -1,5 +1,6 @@
 <template>
   <div>
+    <text>hello I'm here</text>
   </div>
 </template>
 

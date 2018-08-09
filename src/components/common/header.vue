@@ -14,6 +14,7 @@
 
 <script>
 import VImage from './vImage.vue'
+import { jumpIn } from '../../common/js/util.js'
 
 export default {
   name: 'header',
@@ -38,7 +39,7 @@ export default {
 
     },
     playing () {
-
+      jumpIn({ url: '/pages/account/account' })
     }
   }
 }
