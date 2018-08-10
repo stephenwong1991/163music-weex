@@ -1,5 +1,5 @@
 // You can see all the config in `./configs`.
-const  buildPlugins = require('./configs/plugin');
+const buildPlugins = require('./configs/plugin');
 let webpackConfig;
 module.exports = env => {
   switch (env.NODE_ENV) {
