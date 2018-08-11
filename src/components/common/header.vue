@@ -7,7 +7,7 @@
         <v-image class="icon-search" src="header/cm2_list_icn_search@2x.png" />
         <text class="search">搜索音乐、视频、歌词、电台</text>
       </div>
-      <v-image class="icon-playing" src="header/cm2_topbar_icn_playing@2x.png" @click="playing" />
+      <v-image class="icon-playing" src="header/cm2_topbar_icn_playing@2x.png" @click.native="playing" />
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
 
     },
     playing () {
-      jumpIn({ url: '/pages/account/account' })
+      jumpIn({ url: '/pages/play/play' })
     }
   }
 }

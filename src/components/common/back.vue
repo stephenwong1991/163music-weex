@@ -46,7 +46,6 @@ export default {
   .back-wrapper {
     width: 750px;
     height: 100px;
-    background-color: #000000;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

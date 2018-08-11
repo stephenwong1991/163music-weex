@@ -95,7 +95,7 @@ export const jumpIn = (options = { animated: 'true' }, callback = null) => {
       index = weex.config.bundleUrl.indexOf('bundlejs')
       url = weex.config.bundleUrl.substring(0, index) + 'bundlejs'
       navigator.push({
-        url: url + address,
+        url: url + address + '.js',
         animated: options.animated
       }, callback)
       break
