@@ -178,12 +178,10 @@ export default {
   components: {
     VImage
   },
-  data () {
-    return {
-      currentPage: 0,
-      translateX: 0
-    }
-  },
+  data: () => ({
+    currentPage: 0,
+    translateX: 0
+  }),
   created () {
     const { titleType, tabStyles } = this
     if (titleType === 'iconFont' && tabStyles.iconFontUrl) {

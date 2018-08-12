@@ -25,12 +25,10 @@ import CONST from '../../common/js/const.js'
 
 export default {
   name: 'dashboard',
-  data () {
-    return {
-      tabTitles: CONST.tabTitles,
-      tabStyles: CONST.tabStyles
-    }
-  },
+  data: () => ({
+    tabTitles: CONST.tabTitles,
+    tabStyles: CONST.tabStyles
+  }),
   components: {
     VTabBar,
     VFind,

@@ -3,28 +3,28 @@ const CONST = {
   tabTitles: [
     {
       title: '发现',
-      icon: 'btm/cm4_btm_icn_discovery.png',
-      activeIcon: 'btm/cm4_btm_icn_discovery_prs.png'
+      icon: 'btm/cm4_btm_icn_discovery@2x.png',
+      activeIcon: 'btm/cm4_btm_icn_discovery_prs@2x.png'
     },
     {
       title: '视频',
-      icon: 'btm/cm4_btm_icn_video_new.png',
-      activeIcon: 'btm/cm4_btm_icn_video_new_prs.png'
+      icon: 'btm/cm4_btm_icn_video_new@2x.png',
+      activeIcon: 'btm/cm4_btm_icn_video_new_prs@2x.png'
     },
     {
       title: '我的',
-      icon: 'btm/cm4_btm_icn_music_new.png',
-      activeIcon: 'btm/cm4_btm_icn_music_new_prs.png'
+      icon: 'btm/cm4_btm_icn_music_new@2x.png',
+      activeIcon: 'btm/cm4_btm_icn_music_new_prs@2x.png'
     },
     {
       title: '朋友',
-      icon: 'btm/cm4_btm_icn_friend.png',
-      activeIcon: 'btm/cm4_btm_icn_friend_prs.png'
+      icon: 'btm/cm4_btm_icn_friend@2x.png',
+      activeIcon: 'btm/cm4_btm_icn_friend_prs@2x.png'
     },
     {
       title: '账号',
-      icon: 'btm/cm4_btm_icn_account.png',
-      activeIcon: 'btm/cm4_btm_icn_account_prs.png'
+      icon: 'btm/cm4_btm_icn_account@2x.png',
+      activeIcon: 'btm/cm4_btm_icn_account_prs@2x.png'
     }
   ],
   tabStyles: {

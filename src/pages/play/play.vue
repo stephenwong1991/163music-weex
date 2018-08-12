@@ -11,10 +11,9 @@
           <v-image class="play-program" src="default/cm2_default_cover_program.png"></v-image>
           <v-image class="play-program1" src="play/cm2_play_disc.png"></v-image>
           <v-image class="play-program2" src="play/cm2_play_disc@3x.png"></v-image>
+          <!-- 转动的亮光 -->
           <v-image class="play-program3" src="play/cm2_playing_mask.png"></v-image>
         </div>
-
-
         <v-image class="play-pointer" src="play/cm2_play_needle_play-ip6@2x.png"></v-image>
       </div>
     </div>
@@ -27,11 +26,9 @@ import VBack from '../../components/common/back.vue'
 import VImage from '../../components/common/vImage.vue'
 
 export default {
-  data () {
-    return {
-      defalutBg: 'clock/cm2_clock_bg.png'
-    }
-  },
+  data: () => ({
+    defalutBg: 'clock/cm2_clock_bg.png'
+  }),
   components: {
     VBack,
     VImage

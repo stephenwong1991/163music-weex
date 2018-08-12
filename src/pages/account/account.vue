@@ -54,6 +54,7 @@
           <div slot="value" v-if="index !== about.length-1" class="cell-bottom"></div>
         </wxc-cell>
       </div>
+      <text class="logout" @click="logout">退出登陆</text>
     </scroller>
   </div>
 </template>
@@ -74,19 +75,17 @@ export default {
       })
     }
   },
-  data () {
-    return {
-      mine: Config.mine,
-      vip: Config.vip,
-      setting: Config.setting,
-      about: Config.about,
-      cellStyle: {
-        height: '80px',
-        borderBottomWidth: '0',
-        backgroundColor: '#FFFFFF'
-      }
+  data: () => ({
+    mine: Config.mine,
+    vip: Config.vip,
+    setting: Config.setting,
+    about: Config.about,
+    cellStyle: {
+      height: '80px',
+      borderBottomWidth: '0',
+      backgroundColor: '#FFFFFF'
     }
-  },
+  }),
   components: {
     WxcCell,
     VHeader,
@@ -102,6 +101,17 @@ export default {
   methods: {
     wxcCellClicked (e) {
       console.log(e)
+    },
+    logout () {
+      let modal = weex.requireModule('modal')
+      modal.confirm({
+        message: '网易云音乐\n确定退出当前账号吗？',
+        okTitle: '确定',
+        cancelTitle: '取消',
+        duration: 0.3
+      }, value => {
+        // todo: logout
+      })
     }
   }
 }
@@ -130,5 +140,14 @@ export default {
     width: 48px;
     height: 48px;
     margin-right: 20px;
+  }
+
+  .logout {
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 17px;
+    background-color: #FFFFFF;
+    color: #d84036;
+    text-align: center;
   }
 </style>

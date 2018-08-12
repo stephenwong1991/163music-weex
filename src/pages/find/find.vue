@@ -9,10 +9,9 @@ import VHeader from '../../components/common/header.vue'
 
 export default {
   name: 'find',
-  data () {
-    return {
-    }
-  },
+  data: () => ({
+
+  }),
   components: {
     VHeader
   },
