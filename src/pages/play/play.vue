@@ -1,11 +1,21 @@
 <template>
   <div class="play-wrapper">
     <v-image class="play-bg" :style="contentStyle" :src="defalutBg"></v-image>
+    <v-image class="play-bg" :style="contentStyle" src="play/cm2_playbar_bg.png"></v-image>
+    <v-image class="play-bg" :style="contentStyle" src="play/cm2_playbar_ready.png"></v-image>
     <div class="play-content-wrapper">
       <v-back :title="'title'" :desc="'desc'"></v-back>
       <div class="play-station">
+        <v-image class="play-radio-bg" src="play/cm2_play_disc_radio_bg.png"></v-image>
+        <div class="play-program-wrapper">
+          <v-image class="play-program" src="default/cm2_default_cover_program.png"></v-image>
+          <v-image class="play-program1" src="play/cm2_play_disc.png"></v-image>
+          <v-image class="play-program2" src="play/cm2_play_disc@3x.png"></v-image>
+          <v-image class="play-program3" src="play/cm2_playing_mask.png"></v-image>
+        </div>
+
+
         <v-image class="play-pointer" src="play/cm2_play_needle_play-ip6@2x.png"></v-image>
-        <v-image class="play-program" src="play/cm2_default_cover_program-ip6@2x.png"></v-image>
       </div>
     </div>
   </div>
@@ -19,7 +29,7 @@ import VImage from '../../components/common/vImage.vue'
 export default {
   data () {
     return {
-      defalutBg: 'play/cm2_clock_bg@2x.png'
+      defalutBg: 'clock/cm2_clock_bg.png'
     }
   },
   components: {
@@ -39,6 +49,9 @@ export default {
 <style scoped>
   .play-bg {
     width: 750px;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   .play-content-wrapper {
@@ -48,19 +61,54 @@ export default {
   }
 
   .play-station {
+    height: 800px;
     overflow: hidden;
     align-items: center;
+  }
+
+  .play-radio-bg {
+    width: 574px;
+    height: 574px;
+    top: 85px;
+  }
+
+  .play-program-wrapper {
+    width: 750px;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   .play-pointer {
     width: 222px;
     height: 366px;
+    position: absolute;
     left: 315px;
     top: -60px;
   }
 
   .play-program {
-    width: 468px;
-    height: 468px;
+    width: 490px;
+    height: 490px;
+    top: 128px;
+  }
+
+  .play-program1 {
+    width: 404px;
+    height: 404px;
+    top: -320px;
+  }
+
+  .play-program2 {
+    width: 574px;
+    height: 574px;
+    top: -810px;
+  }
+
+  .play-program3 {
+    width: 560px;
+    height: 280px;
+    top: -1240px;
   }
 </style>

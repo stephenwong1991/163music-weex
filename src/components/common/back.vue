@@ -2,15 +2,15 @@
   <div>
     <div class="back-wrapper">
       <div class="back">
-        <v-image class="back-icon" src="back/cm2_act_view_btn_back_prs@2x.png"></v-image>
+        <v-image class="back-icon" src="act/cm2_act_view_btn_back.png"></v-image>
       </div>
       <div class="title-wrapper">
-        <text :class="[titleClass]">{{ title }}</text>
-        <text :class="[descClass]">{{ desc }}</text>
+        <text :class="titleClass">{{ title }}</text>
+        <text :class="descClass">{{ desc }}</text>
       </div>
       <div class="back-right-icon">
-        <v-image class="back-whale" src="back/cm5_topbar_icn_effect@2x.png"></v-image>
-        <v-image class="back-share" src="back/cm2_list_detail_icn_share_prs@2x.png"></v-image>
+        <v-image class="back-whale" src="topbar/cm5_topbar_icn_effect.png"></v-image>
+        <v-image class="back-share" src="list/cm2_list_detail_icn_share.png"></v-image>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     border-bottom-width: 1px;
-    border-bottom-color: #573d46;
+    border-bottom-color: #CCCCCC;
     border-bottom-style: solid;
   }
 

@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <v-image v-if="hasMic" class="icon-mic" src="header/cm2_topbar_icn_mic@2x.png" @click="mic" />
+      <v-image v-if="hasMic" class="icon-mic" src="topbar/cm2_topbar_icn_mic.png" @click="mic" />
       <text v-if="title" :class="['header-title', !hasMic && 'header-title-margin']">{{ title }}</text>
       <div v-else class="search-wrapper" @click="search">
-        <v-image class="icon-search" src="header/cm2_list_icn_search@2x.png" />
+        <v-image class="icon-search" src="list/cm2_list_icn_search.png" />
         <text class="search">搜索音乐、视频、歌词、电台</text>
       </div>
-      <v-image class="icon-playing" src="header/cm2_topbar_icn_playing@2x.png" @click.native="playing" />
+      <v-image class="icon-playing" src="topbar/cm2_topbar_icn_playing.png" @click.native="playing" />
     </div>
   </div>
 </template>
