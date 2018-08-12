@@ -2,6 +2,28 @@
   <div>
     <v-header :hasMic="false" :title="'账号'"></v-header>
     <scroller :style="contentStyle" class="account-wrapper">
+      <div class="person-info-wrapper">
+        <div class="info">
+
+        </div>
+        <div class="relationship">
+          <div class="relationship-item">
+            <text class="relationship-text">动态</text>
+            <text class="relationship-text">1</text>
+          </div>
+          <div class="relationship-item">
+            <text class="relationship-text">关注</text>
+            <text class="relationship-text">1</text>
+          </div>
+          <div class="relationship-item">
+            <text class="relationship-text">粉丝</text>
+            <text class="relationship-text">1</text>
+          </div>
+          <div class="relationship-item">
+            <text class="relationship-text">我的资料</text>
+          </div>
+        </div>
+      </div>
       <div class="account-wrapper-list">
         <wxc-cell v-for="(item, index) in mine"
                 :key="index"
@@ -121,6 +143,35 @@ export default {
 <style scoped>
   .account-wrapper {
     background-color: #eeeff0;
+  }
+
+  .person-info-wrapper {
+    height: 245px;
+    background-color: #FFFFFF;
+    margin-bottom: 17px;
+  }
+
+  .info {
+    height: 158px;
+    border-bottom-color: #ebeced;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+
+  .relationship {
+    flex-direction: row;
+  }
+
+  .relationship-item {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .relationship-text {
+    color: #aaabac;
+    text-align: center;
+    font-size: 26px;
   }
 
   .account-wrapper-list {
