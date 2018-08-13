@@ -9,17 +9,18 @@
         <div class="relationship">
           <div class="relationship-item">
             <text class="relationship-text">动态</text>
-            <text class="relationship-text">1</text>
+            <text class="relationship-num">1</text>
           </div>
           <div class="relationship-item">
             <text class="relationship-text">关注</text>
-            <text class="relationship-text">1</text>
+            <text class="relationship-num">1</text>
           </div>
           <div class="relationship-item">
             <text class="relationship-text">粉丝</text>
-            <text class="relationship-text">1</text>
+            <text class="relationship-num">1</text>
           </div>
           <div class="relationship-item">
+            <v-image class="relationship-icon" src="set/cm2_set_icn_edit@2x.png"></v-image>
             <text class="relationship-text">我的资料</text>
           </div>
         </div>
@@ -159,19 +160,37 @@ export default {
   }
 
   .relationship {
+    height: 87px;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .relationship-item {
+    height: 50px;
     flex: 1;
     justify-content: center;
     align-items: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #e9eaeb;
   }
 
   .relationship-text {
     color: #aaabac;
     text-align: center;
     font-size: 26px;
+  }
+
+  .relationship-num {
+    color: #2e2e2f;
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .relationship-icon {
+    width: 30px;
+    height: 30px;
   }
 
   .account-wrapper-list {
