@@ -4,7 +4,18 @@
     <scroller :style="contentStyle" class="account-wrapper">
       <div class="person-info-wrapper">
         <div class="info">
-
+          <v-image class="info-avatar" src="set/avatar.jpg"></v-image>
+          <div class="info-item">
+            <text class="info-name">Stephen_Wong</text>
+            <div class="info-lv-wrapper">
+              <text class="info-lv-text">7</text>
+              <v-image class="info-lv" src="set/cm2_set_lv@2x.png"></v-image>
+            </div>
+          </div>
+          <div class="info-jifen">
+            <v-image class="info-jifen-icon" src="set/cm2_set_btnicn_jifen@2x.png"></v-image>
+            <text class="info-jifen-text">签到</text>
+          </div>
         </div>
         <div class="relationship">
           <div class="relationship-item">
@@ -56,11 +67,12 @@
                 :key="index"
                 :cell-style="cellStyle"
                 :title="item.title"
-                :has-arrow="true"
+                :has-arrow="index !== 3"
                 @wxcCellClicked="wxcCellClicked">
           <v-image class="image"
                 slot="label"
                 :src="item.icon"></v-image>
+          <switch v-if="index === 3" slot="value"></switch>
           <div slot="value" v-if="index !== setting.length-1" class="cell-bottom"></div>
         </wxc-cell>
       </div>
@@ -138,7 +150,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style scoped>
@@ -154,9 +165,79 @@ export default {
 
   .info {
     height: 158px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-bottom-color: #ebeced;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .info-avatar {
+    width: 103px;
+    height: 103px;
+    border-radius: 50px;
+    margin-right: 17px;
+  }
+
+  .info-item {
+    margin-left: -170px;
+  }
+
+  .info-name {
+    color: #313132;
+    font-size: 36px;
+    margin-bottom: 17px;
+  }
+
+  .info-lv-wrapper {
+    width: 86px;
+    height: 32px;
+  }
+
+  .info-lv-text {
+    width: 60px;
+    height: 32px;
+    line-height: 36px;
+    color: #9a9a9b;
+    font-style: italic;
+    font-size: 22px;
+    text-align: right;
+  }
+
+  .info-lv {
+    width: 68px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .info-jifen {
+    width: 124px;
+    height: 44px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d74f47;
+  }
+
+  .info-jifen-icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 15px;
+    top: 6px;
+  }
+
+  .info-jifen-text {
+    color: #d74f47;
+    padding-left: 50px;
+    font-size: 28px;
+    height: 44px;
+    line-height: 44px;
   }
 
   .relationship {
