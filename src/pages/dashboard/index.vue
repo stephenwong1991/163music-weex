@@ -5,7 +5,7 @@
               duration="0"
               @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
     <div class="item-container" :style="contentStyle">
-      <v-find></v-find>
+      <v-find :parentStyle="contentStyle"></v-find>
     </div>
     <div class="item-container" :style="contentStyle"><text>视频</text></div>
     <div class="item-container" :style="contentStyle"><text>我的</text></div>
