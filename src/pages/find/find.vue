@@ -10,6 +10,11 @@
                 :style="{ height: parseInt(this.parentStyle.height) - 100 - this.tabStyles.height + 'px' }">
         <div class="item-container" :style="{ height: (tabPageHeight - tabStyles.height) + 'px' }">
           <div class="find-content-mask"></div>
+          <slider class="banner-wrapper" interval="3000" auto-play="true" scrollable="true">
+            <div class="banner-item" v-for="(item, index) in bannerList" :key="index">
+              <image class="banner-image" :src="item.picUrl"></image>
+            </div>
+          </slider>
         </div>
       </scroller>
     </wxc-tab-page>
@@ -27,6 +32,7 @@
 <script>
 import { WxcTabPage, WxcPanItem, Utils, BindEnv } from 'weex-ui'
 import Config from './config.js'
+import { $http } from '../../common/js/api.js'
 import VHeader from '../../components/common/header.vue'
 import VImage from '../../components/common/vImage.vue'
 
@@ -41,6 +47,7 @@ export default {
     }
   },
   data: () => ({
+    bannerList: [],
     topbtn: Config.topbtn,
     tabTitles: Config.tabTitles,
     tabStyles: Config.tabStyles,
@@ -51,6 +58,13 @@ export default {
     VImage,
     WxcTabPage,
     WxcPanItem
+  },
+  created () {
+    $http({
+      url: '/banner'
+    }).then(res => {
+      this.bannerList = res.banners
+    })
   },
   methods: {
     wxcTabPageCurrentTabSelected (e) {
@@ -114,5 +128,26 @@ export default {
   .item-container {
     width: 750px;
     background-color: #FFFFFF;
+  }
+
+  .banner-wrapper {
+    width: 726px;
+    height: 282px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -212px;
+  }
+
+  .banner-item {
+    width: 726px;
+    height: 282px;
+    position: relative;
+  }
+
+  .banner-image {
+    width: 726px;
+    height: 282px;
   }
 </style>
