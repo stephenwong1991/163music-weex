@@ -1,1 +1,2 @@
-set √
+set    √
+disc   √
