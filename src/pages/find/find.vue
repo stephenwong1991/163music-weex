@@ -7,21 +7,16 @@
               :tab-page-height="tabPageHeight"
               @wxcTabPageCurrentTabSelected="wxcTabPageCurrentTabSelected">
       <scroller class="find-scroller"
-                :style="{ height: parseInt(this.parentStyle.height) - 100 - this.tabStyles.height + 'px' }">
+                v-for="(item, index) in tabList"
+                :key="index"
+                :style="{ height: parseInt(parentStyle.height) - 100 - tabStyles.height + 'px' }">
         <div class="item-container" :style="{ height: (tabPageHeight - tabStyles.height) + 'px' }">
           <div class="find-content-mask"></div>
           <v-banner :list="bannerList"></v-banner>
+          <v-list :list="tabTitles[index].topbtn"></v-list>
         </div>
       </scroller>
     </wxc-tab-page>
-      <!-- <div class="topbtn-wrapper">
-        <div class="topbtn-item" v-for="(item, index) in topbtn" :key="index">
-          <div class="topbtn-icon-wrapper">
-            <v-image class="topbtn-icon" :src="item.icon"></v-image>
-          </div>
-          <text class="topbtn-text">{{ item.text }}</text>
-        </div>
-      </div> -->
   </div>
 </template>
 
@@ -30,7 +25,8 @@ import { WxcTabPage, WxcPanItem, Utils, BindEnv } from 'weex-ui'
 import Config from './config.js'
 import { $http } from '../../common/js/api.js'
 import VHeader from '../../components/common/header.vue'
-import VBanner from '../../components/common/banner.vue'
+import VBanner from '../../components/find/banner.vue'
+import VList from '../../components/find/list.vue'
 import VImage from '../../components/common/vImage.vue'
 
 export default {
@@ -53,11 +49,13 @@ export default {
   components: {
     VHeader,
     VBanner,
+    VList,
     VImage,
     WxcTabPage,
     WxcPanItem
   },
   created () {
+    this.tabList = [...Array(this.tabTitles.length).keys()].map(i => [])
     $http({
       url: '/banner'
     }).then(res => {
@@ -91,36 +89,6 @@ export default {
     width: 750px;
     height: 236px;
     background-color: #db4137;
-  }
-
-  .topbtn-wrapper {
-    padding-left: 44px;
-    padding-right: 44px;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .topbtn-item {
-    align-items: center;
-  }
-
-  .topbtn-icon-wrapper {
-    width: 100px;
-    height: 100px;
-    background-color: #e14838;
-    border-radius: 50px;
-    margin-bottom: 14px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .topbtn-icon {
-    width: 90px;
-    height: 90px;
-  }
-
-  .topbtn-text {
-    text-align: center;
   }
 
   .item-container {

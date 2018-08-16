@@ -1,13 +1,23 @@
 export default {
-  topbtn: [
-    { text: '私人FM', icon: 'disc/cm5_disc_topbtn_fm@2x.png' },
-    { text: '每日推荐', icon: 'disc/cm5_disc_topbtn_daily@2x.png' },
-    { text: '歌单', icon: 'disc/cm5_disc_topbtn_list@2x.png' },
-    { text: '排行榜', icon: 'disc/cm5_disc_topbtn_rank@2x.png' }
-  ],
   tabTitles: [
-    { title: '个性推荐' },
-    { title: '主播电台' }
+    {
+      title: '个性推荐',
+      topbtn: [
+        { text: '私人FM', icon: 'disc/cm5_disc_topbtn_fm@2x.png' },
+        { text: '每日推荐', icon: 'disc/cm5_disc_topbtn_daily@2x.png' },
+        { text: '歌单', icon: 'disc/cm5_disc_topbtn_list@2x.png' },
+        { text: '排行榜', icon: 'disc/cm5_disc_topbtn_rank@2x.png' }
+      ]
+    },
+    {
+      title: '主播电台',
+      topbtn: [
+        { text: '电台分类', icon: 'disc/cm4_disc_radio_category_btn@2x.png' },
+        { text: '电台排行', icon: 'disc/cm4_disc_radio_toplist_btn@2x.png' },
+        { text: '付费精品', icon: 'disc/cm4_disc_radio_feebest_btn@2x.png' },
+        { text: '小冰电台', icon: 'disc/cm4_disc_radio_xiaobing_btn@2x.png' }
+      ]
+    }
   ],
   tabStyles: {
     bgColor: '#dc4238',
