@@ -1,5 +1,4 @@
 const CONST = {
-  // tab-bar content
   tabTitles: [
     {
       title: '发现',

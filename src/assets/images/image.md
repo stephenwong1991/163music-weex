@@ -1,2 +1,3 @@
-set    √
-disc   √
+set      √
+disc     √
+default  √

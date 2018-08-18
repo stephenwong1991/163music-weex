@@ -1,20 +1,24 @@
 <template>
   <slider class="banner-wrapper" interval="5000" auto-play="true" scrollable="true">
     <div class="banner-item" v-for="(item, index) in list" :key="index">
-      <image class="banner-image" :src="item.picUrl"></image>
+      <v-image class="banner-image" :src="item.picUrl"></v-image>
     </div>
     <indicator class="indicator"></indicator>
   </slider>
 </template>
 
 <script>
+import VImage from '../common/vImage.vue'
+
 export default {
   props: {
     list: {
       type: Array,
-      default: () => ({
-      })
+      default: () => ([])
     }
+  },
+  components: {
+    VImage
   }
 }
 </script>

@@ -10,10 +10,14 @@
                 v-for="(item, index) in tabList"
                 :key="index"
                 :style="{ height: parseInt(parentStyle.height) - 100 - tabStyles.height + 'px' }">
-        <div class="item-container" :style="{ height: (tabPageHeight - tabStyles.height) + 'px' }">
+        <div class="item-container">
           <div class="find-content-mask"></div>
           <v-banner :list="bannerList"></v-banner>
           <v-list :list="tabTitles[index].topbtn"></v-list>
+          <div class="find-content">
+            <v-song title="推荐歌单" :songList="personalized"></v-song>
+            <!-- <v-song title="最新音乐" :songList="personalized"></v-song> -->
+          </div>
         </div>
       </scroller>
     </wxc-tab-page>
@@ -27,6 +31,7 @@ import { $http } from '../../common/js/api.js'
 import VHeader from '../../components/common/header.vue'
 import VBanner from '../../components/find/banner.vue'
 import VList from '../../components/find/list.vue'
+import VSong from '../../components/find/song.vue'
 import VImage from '../../components/common/vImage.vue'
 
 export default {
@@ -40,29 +45,45 @@ export default {
     }
   },
   data: () => ({
-    bannerList: [],
+    bannerList: Config.bannerList,
     topbtn: Config.topbtn,
     tabTitles: Config.tabTitles,
     tabStyles: Config.tabStyles,
+    personalized: Config.personalized, // 推荐歌单
     tabPageHeight: 1334
   }),
   components: {
     VHeader,
     VBanner,
     VList,
+    VSong,
     VImage,
     WxcTabPage,
     WxcPanItem
   },
   created () {
     this.tabList = [...Array(this.tabTitles.length).keys()].map(i => [])
-    $http({
-      url: '/banner'
-    }).then(res => {
-      this.bannerList = res.banners
-    })
+    this.init()
   },
   methods: {
+    init () {
+      this.getBanner()
+      this.getPersonalized()
+    },
+    getBanner () {
+      $http({
+        url: '/banner'
+      }).then(res => {
+        this.bannerList = res.banners
+      })
+    },
+    getPersonalized () {
+      $http({
+        url: '/personalized'
+      }).then(res => {
+        this.personalized = res.result
+      })
+    },
     wxcTabPageCurrentTabSelected (e) {
     },
     wxcPanItemPan (e) {
@@ -94,5 +115,10 @@ export default {
   .item-container {
     width: 750px;
     background-color: #FFFFFF;
+  }
+
+  .find-content {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 </style>

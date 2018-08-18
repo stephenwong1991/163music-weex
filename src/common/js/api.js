@@ -7,7 +7,8 @@ const NODE_ENV = process.env.NODE_ENV || 'development'
 const host = {
   'production': '',
   // 'development': 'http://localhost:3000'
-  'development': 'http://192.168.1.11:3000'
+  // 'development': 'http://192.168.1.11:3000'
+  'development': 'http://10.134.107.185:3000'
 }[NODE_ENV]
 
 export const $http = (options) => {

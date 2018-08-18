@@ -36,5 +36,24 @@ export default {
     activeBottomWidth: 60,
     textPaddingLeft: 10,
     textPaddingRight: 10
-  }
+  },
+  // default
+  bannerList: [
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' },
+    { picUrl: 'default/cm2_default_lyric_share@2x.png' }
+  ],
+  personalized: [
+    { picUrl: 'default/cm2_default_edit_80@2x.png' },
+    { picUrl: 'default/cm2_default_edit_80@2x.png' },
+    { picUrl: 'default/cm2_default_edit_80@2x.png' },
+    { picUrl: 'default/cm2_default_edit_80@2x.png' },
+    { picUrl: 'default/cm2_default_edit_80@2x.png' },
+    { picUrl: 'default/cm2_default_edit_80@2x.png' }
+  ]
 }
