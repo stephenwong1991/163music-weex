@@ -9,7 +9,7 @@
       <scroller class="find-scroller"
                 v-for="(item, index) in tabList"
                 :key="index"
-                :style="{ height: parseInt(parentStyle.height) - 100 - tabStyles.height + 'px' }">
+                :style="{ height: parseInt(parentStyle.height) - tabStyles.height + 'px' }">
         <div class="item-container">
           <div class="find-content-mask"></div>
           <v-banner :list="bannerList"></v-banner>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-header :hasMic="false" :title="'账号'"></v-header>
-    <scroller :style="contentStyle" class="account-wrapper">
+    <scroller :style="{ height: parseInt(this.parentStyle.height) + 'px' }" class="account-wrapper">
       <div class="person-info-wrapper">
         <div class="info">
           <v-image class="info-avatar" src="set/avatar.jpg"></v-image>
@@ -125,13 +125,6 @@ export default {
     WxcCell,
     VHeader,
     VImage
-  },
-  computed: {
-    contentStyle () {
-      return {
-        height: parseInt(this.parentStyle.height) - 100 + 'px'
-      }
-    }
   },
   methods: {
     wxcCellClicked (e) {

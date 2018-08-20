@@ -48,11 +48,11 @@ export default {
 <style scoped>
   .header-wrapper {
     width: 750px;
-    height: 100px;
+    height: 120px; /* 多出来20px是为了给状态栏留出位置 */
     background-color: #dc4238;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .header-title {
