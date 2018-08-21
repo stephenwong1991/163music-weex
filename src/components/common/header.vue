@@ -14,7 +14,7 @@
 
 <script>
 import VImage from './vImage.vue'
-import { jumpIn } from '../../common/js/util.js'
+import { jumpIn } from '@/common/js/util.js'
 
 export default {
   name: 'header',

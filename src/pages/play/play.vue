@@ -22,8 +22,10 @@
 
 <script>
 import { Utils } from 'weex-ui'
-import VBack from '../../components/common/back.vue'
-import VImage from '../../components/common/vImage.vue'
+import Nat from 'natjs'
+// import $http from '@/common/js/api.js'
+import VBack from '@/components/common/back.vue'
+import VImage from '@/components/common/vImage.vue'
 
 export default {
   data: () => ({
@@ -36,9 +38,26 @@ export default {
   created () {
     const tabPageHeight = Utils.env.getPageHeight()
     this.contentStyle = { height: tabPageHeight + 'px' }
+    this.init()
   },
   methods: {
-
+    init () {
+      this.getMusic()
+    },
+    getMusic () {
+      Nat.audio.play('http://cdn.instapp.io/nat/samples/audio.mp3', () => {
+        let modal = weex.requireModule('modal')
+        modal.toast({ message: 'play' })
+      })
+      // $http({
+      //   url: '/music/url?id=33894312'
+      // }).then(res => {
+      //   Nat.audio.play(res.data[0].url, () => {
+      //     let modal = weex.requireModule('modal')
+      //     modal.toast({ message: 'play' })
+      //   })
+      // })
+    }
   }
 }
 </script>

@@ -18,10 +18,10 @@
 
 <script>
 import { Utils } from 'weex-ui'
-import VTabBar from '../../components/common/tabBar.vue'
+import CONST from '@/common/js/const.js'
+import VTabBar from '@/components/common/tabBar.vue'
 import VFind from '../find/find.vue'
 import VAccount from '../account/account.vue'
-import CONST from '../../common/js/const.js'
 
 export default {
   name: 'dashboard',

@@ -21,8 +21,7 @@ export default {
   },
   components: {
     VImage
-  },
-  methods: {}
+  }
 }
 
 </script>

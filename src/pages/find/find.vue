@@ -27,12 +27,12 @@
 <script>
 import { WxcTabPage, WxcPanItem, Utils, BindEnv } from 'weex-ui'
 import Config from './config.js'
-import { $http } from '../../common/js/api.js'
-import VHeader from '../../components/common/header.vue'
-import VBanner from '../../components/find/banner.vue'
-import VList from '../../components/find/list.vue'
-import VSong from '../../components/find/song.vue'
-import VImage from '../../components/common/vImage.vue'
+import $http from '@/common/js/api.js'
+import VHeader from '@/components/common/header.vue'
+import VImage from '@/components/common/vImage.vue'
+import VBanner from '@/components/find/banner.vue'
+import VList from '@/components/find/list.vue'
+import VSong from '@/components/find/song.vue'
 
 export default {
   name: 'find',
@@ -54,10 +54,10 @@ export default {
   }),
   components: {
     VHeader,
+    VImage,
     VBanner,
     VList,
     VSong,
-    VImage,
     WxcTabPage,
     WxcPanItem
   },
@@ -71,16 +71,12 @@ export default {
       this.getPersonalized()
     },
     getBanner () {
-      $http({
-        url: '/banner'
-      }).then(res => {
+      $http.banner().then(res => {
         this.bannerList = res.banners
       })
     },
     getPersonalized () {
-      $http({
-        url: '/personalized'
-      }).then(res => {
+      $http.personalized().then(res => {
         this.personalized = res.result
       })
     },

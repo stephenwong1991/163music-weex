@@ -75,7 +75,8 @@ export const dateFormat = (date, format = 'yyyyMMddhhmmss') => {
  */
 export const jumpIn = (options = { animated: 'true' }, callback = null) => {
   let navigator = weex.requireModule('navigator')
-  let platform = getPlatform()
+  // let platform = getPlatform()
+  let platform = 'test' // Use weex playground
   let address = options.url
   let [url, index] = []
 
@@ -86,9 +87,17 @@ export const jumpIn = (options = { animated: 'true' }, callback = null) => {
   }
 
   switch (platform) {
+    case 'test': // demo
+      navigator.push({
+        // url: `http://192.168.1.11:8081/dist${address}.js`, // for test
+        url: `${getHost()}/dist${address}.js`,
+        animated: options.animated
+      }, callback)
+      break
+
     case 'web':
       url = address.split('.')[0]
-      window.location.href = `${getHost()}${url}.html`
+      window.location.href = `${getHost()}${options.url}.html`
       break
 
     case 'ios':

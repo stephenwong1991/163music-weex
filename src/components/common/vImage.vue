@@ -3,8 +3,8 @@
 </template>
 
 <script>
-// import { getPlatform, getHost } from '../../common/js/util'
-import { getHost } from '../../common/js/util'
+// import { getPlatform, getHost } from '@/common/js/util'
+import { getHost } from '@/common/js/util'
 
 export default {
   name: 'image',
@@ -41,6 +41,7 @@ export default {
       if (src.indexOf('http') >= 0) {
         return src
       }
+      // return `http://192.168.1.11:8081/src/assets/images/${src}` // for test
       return `${getHost()}/src/assets/images/${src}`
     }
   }

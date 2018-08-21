@@ -97,8 +97,8 @@
 <script>
 import { WxcCell, Utils } from 'weex-ui'
 import Config from './config.js'
-import VHeader from '../../components/common/header.vue'
-import VImage from '../../components/common/vImage.vue'
+import VHeader from '@/components/common/header.vue'
+import VImage from '@/components/common/vImage.vue'
 
 export default {
   name: 'account',

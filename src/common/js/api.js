@@ -7,29 +7,38 @@ const NODE_ENV = process.env.NODE_ENV || 'development'
 const host = {
   'production': '',
   // 'development': 'http://localhost:3000'
-  // 'development': 'http://192.168.1.11:3000'
-  'development': 'http://10.134.107.185:3000'
+  'development': 'http://192.168.1.11:3000'
 }[NODE_ENV]
 
-export const $http = (options) => {
-  const stream = weex.requireModule('stream')
-  let method = (options.method || 'GET').toUpperCase()
-  let body = options.body || {}
-  let data = {
-    method: method,
-    url: host + options.url,
-    type: 'json'
-  }
-  if (method === 'POST') {
-    data.body = body
-  }
-  return new Promise((resolve, reject) => {
-    stream.fetch(data, response => {
-      if (response.ok && response.status === 200) {
-        resolve(response.data)
-      } else {
-        reject(response.data)
-      }
+export default {
+  _core (options) {
+    let stream = weex.requireModule('stream')
+    let method = (options.method || 'GET').toUpperCase()
+    let body = options.body || {}
+    let data = {
+      method: method,
+      url: host + options.url,
+      type: 'json'
+    }
+    if (method === 'POST') {
+      data.body = body
+    }
+    return new Promise((resolve, reject) => {
+      stream.fetch(data, response => {
+        if (response.ok && response.status === 200) {
+          return resolve(response.data)
+        } else {
+          return reject(response.data)
+        }
+      })
     })
-  })
+  },
+  // 获取 banner(轮播图)数据
+  banner () {
+    return this._core({ url: '/banner' })
+  },
+  // 推荐歌单
+  personalized () {
+    return this._core({ url: '/personalized' })
+  }
 }
