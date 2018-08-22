@@ -4,11 +4,11 @@
     <wxc-tab-page ref="wxc-tab-page"
               :tab-titles="tabTitles"
               :tab-styles="tabStyles"
-              :tab-page-height="tabPageHeight"
               @wxcTabPageCurrentTabSelected="wxcTabPageCurrentTabSelected">
       <scroller class="find-scroller"
                 v-for="(item, index) in tabList"
                 :key="index"
+                ref="scroll"
                 :style="{ height: parseInt(parentStyle.height) - tabStyles.height + 'px' }">
         <div class="item-container">
           <div class="find-content-mask"></div>
@@ -49,8 +49,7 @@ export default {
     topbtn: Config.topbtn,
     tabTitles: Config.tabTitles,
     tabStyles: Config.tabStyles,
-    personalized: Config.personalized, // 推荐歌单
-    tabPageHeight: 1334
+    personalized: Config.personalized // 推荐歌单
   }),
   components: {
     VHeader,

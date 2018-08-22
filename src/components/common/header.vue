@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <v-image v-if="hasMic" class="icon-mic" src="topbar/cm2_topbar_icn_mic.png" @click="mic" />
-      <text v-if="title" :class="['header-title', !hasMic && 'header-title-margin']">{{ title }}</text>
+      <v-image v-if="hasLeft" class="icon-left" :src="leftSrc" @click="leftIcon" />
+      <text v-if="title" :class="['header-title', !hasLeft && 'header-title-margin']">{{ title }}</text>
       <div v-else class="search-wrapper" @click="search">
         <v-image class="icon-search" src="list/cm2_list_icn_search.png" />
-        <text class="search">搜索音乐、视频、歌词、电台</text>
+        <text class="search">{{ placeholder }}</text>
       </div>
-      <v-image class="icon-playing" src="topbar/cm2_topbar_icn_playing.png" @click.native="playing" />
+      <v-image class="icon-playing" src="topbar/cm2_topbar_icn_playing@2x.png" @click.native="playing" />
     </div>
   </div>
 </template>
@@ -18,21 +18,37 @@ import { jumpIn } from '@/common/js/util.js'
 
 export default {
   name: 'header',
-  components: {
-    VImage
-  },
   props: {
-    hasMic: {
+    hasLeft: {
       type: Boolean,
       default: true
     },
     title: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: '搜索音乐、视频、歌词、电台'
+    },
+    page: {
+      type: String,
+      default: 'find'
+    }
+  },
+  components: {
+    VImage
+  },
+  computed: {
+    leftSrc () {
+      return {
+        find: 'topbar/cm2_topbar_icn_mic@2x.png',
+        video: 'video/cm4_video_btn_post@2x.png'
+      }[this.page]
     }
   },
   methods: {
-    mic () {
+    leftIcon () {
 
     },
     search () {
@@ -65,7 +81,7 @@ export default {
     margin-left: 91px;
   }
 
-  .icon-mic {
+  .icon-left {
     width: 56px;
     height: 56px;
     margin-right: 35px;

@@ -7,7 +7,9 @@
     <div class="item-container" :style="contentStyle">
       <v-find :parentStyle="contentStyle"></v-find>
     </div>
-    <div class="item-container" :style="contentStyle"><text>视频</text></div>
+    <div class="item-container" :style="contentStyle">
+      <v-video :parentStyle="contentStyle"></v-video>
+    </div>
     <div class="item-container" :style="contentStyle"><text>我的</text></div>
     <div class="item-container" :style="contentStyle"><text>朋友</text></div>
     <div class="item-container" :style="contentStyle">
@@ -21,6 +23,7 @@ import { Utils } from 'weex-ui'
 import CONST from '@/common/js/const.js'
 import VTabBar from '@/components/common/tabBar.vue'
 import VFind from '../find/find.vue'
+import VVideo from '../video/video.vue'
 import VAccount from '../account/account.vue'
 
 export default {
@@ -32,6 +35,7 @@ export default {
   components: {
     VTabBar,
     VFind,
+    VVideo,
     VAccount
   },
   created () {
