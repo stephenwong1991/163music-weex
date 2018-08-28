@@ -1,19 +1,15 @@
 <template>
   <v-tab-bar :tab-titles="tabTitles"
               :tab-styles="tabStyles"
-              title-type="icon"
               duration="0"
               @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-    <div class="item-container" :style="contentStyle">
-      <v-find :parentStyle="contentStyle"></v-find>
-    </div>
-    <div class="item-container" :style="contentStyle">
-      <v-video :parentStyle="contentStyle"></v-video>
-    </div>
-    <div class="item-container" :style="contentStyle"><text>我的</text></div>
-    <div class="item-container" :style="contentStyle"><text>朋友</text></div>
-    <div class="item-container" :style="contentStyle">
-      <v-account :parentStyle="contentStyle"></v-account>
+    <div class="item-container"
+          v-for="(item, index) in tabTitles"
+          :key="index">
+      <component v-if="currentIndex === index"
+                  :is="item.name"
+                  :parentStyle="contentStyle">
+      </component>
     </div>
   </v-tab-bar>
 </template>
@@ -22,15 +18,21 @@
 import { Utils } from 'weex-ui'
 import CONST from '@/common/js/const.js'
 import VTabBar from '@/components/common/tabBar.vue'
-import VFind from '../find/find.vue'
-import VVideo from '../video/video.vue'
-import VAccount from '../account/account.vue'
+import VFind from '@/pages/find/find.vue'
+import VVideo from '@/pages/video/video.vue'
+import VAccount from '@/pages/account/account.vue'
 
 export default {
   name: 'dashboard',
+  /**
+   * @param {Array}  tabTitles    底部导航栏
+   * @param {Object} tabStyles    底部导航栏样式
+   * @param {Number} currentIndex 当前索引
+   */
   data: () => ({
     tabTitles: CONST.tabTitles,
-    tabStyles: CONST.tabStyles
+    tabStyles: CONST.tabStyles,
+    currentIndex: 0
   }),
   components: {
     VTabBar,
@@ -39,14 +41,16 @@ export default {
     VAccount
   },
   created () {
-    const tabPageHeight = Utils.env.getPageHeight()
-    const { tabStyles } = this
-    this.contentStyle = { height: (tabPageHeight - tabStyles.height) + 'px' }
+    this.init()
   },
   methods: {
+    init () {
+      const tabPageHeight = Utils.env.getPageHeight()
+      const { tabStyles } = this
+      this.contentStyle = { height: (tabPageHeight - tabStyles.height) + 'px' }
+    },
     wxcTabBarCurrentTabSelected (e) {
-      const index = e.page
-      console.log(index)
+      this.currentIndex = e.page
     }
   }
 }
