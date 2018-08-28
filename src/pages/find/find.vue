@@ -9,7 +9,7 @@
                 v-for="(item, index) in tabList"
                 :key="index"
                 ref="scroll"
-                :style="{ height: parseInt(parentStyle.height) - tabStyles.height + 'px' }">
+                :style="{ height: parseInt(contentStyle.height) - tabStyles.height + 'px' }">
         <div class="item-container">
           <div class="find-content-mask"></div>
           <v-banner :list="bannerList"></v-banner>
@@ -37,7 +37,7 @@ import VSong from '@/components/find/song.vue'
 export default {
   name: 'find',
   props: {
-    parentStyle: {
+    contentStyle: {
       type: Object,
       default: () => ({
         height: Utils.env.getPageHeight() + 'px'

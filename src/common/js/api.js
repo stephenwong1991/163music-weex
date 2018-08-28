@@ -40,5 +40,9 @@ export default {
   // 推荐歌单
   personalized () {
     return this._core({ url: '/personalized' })
+  },
+  // 推荐 mv
+  personalizedMV () {
+    return this._core({ url: '/personalized/mv' })
   }
 }
