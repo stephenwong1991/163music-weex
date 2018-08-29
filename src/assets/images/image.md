@@ -3,3 +3,4 @@ disc     √
 default  √
 topbar   √
 video    √
+lrc      √
