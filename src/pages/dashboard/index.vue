@@ -20,6 +20,7 @@ import CONST from '@/common/js/const.js'
 import VTabBar from '@/components/common/tabBar.vue'
 import VFind from '@/pages/find/find.vue'
 import VVideo from '@/pages/video/video.vue'
+import VFriend from '@/pages/friend/friend.vue'
 import VAccount from '@/pages/account/account.vue'
 
 export default {
@@ -38,6 +39,7 @@ export default {
     VTabBar,
     VFind,
     VVideo,
+    VFriend,
     VAccount
   },
   created () {

@@ -20,7 +20,7 @@ const CONST = {
     },
     {
       title: '朋友',
-      name: 'v-video',
+      name: 'v-friend',
       icon: 'btm/cm4_btm_icn_friend@2x.png',
       activeIcon: 'btm/cm4_btm_icn_friend_prs@2x.png'
     },

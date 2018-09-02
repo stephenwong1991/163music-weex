@@ -1,6 +1,6 @@
 /**
  * [请求接口]
- * @param {json} options 请求接口的参数
+ * @param {Object} options 请求接口的参数
  * }
  */
 const NODE_ENV = process.env.NODE_ENV || 'development'
@@ -44,5 +44,9 @@ export default {
   // 推荐 mv
   personalizedMV () {
     return this._core({ url: '/personalized/mv' })
+  },
+  // 朋友 动态
+  friendEvent () {
+    return this._core({ url: '/event/get?csrf_token=6e0d35c7b441a824642dd33366768ea5' })
   }
 }
