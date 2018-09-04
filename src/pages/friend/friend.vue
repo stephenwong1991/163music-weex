@@ -7,6 +7,10 @@
       </div>
       <v-image class="icon-playing" src="topbar/cm2_topbar_icn_playing@2x.png" @click.native="playing" />
     </div>
+    <div class="friend-section">
+      <div class="friend-section-tab">发动态</div>
+      <div class="friend-section-tab">发布视频</div>
+    </div>
   </div>
 </template>
 
@@ -51,7 +55,7 @@ export default {
     height: 120px;
     background-color: #dc4238;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-end;
   }
 
@@ -90,5 +94,18 @@ export default {
     width: 56px;
     height: 56px;
     margin-left: 35px;
+  }
+
+  .friend-section {
+    height: 80px;
+    background-color: #dc4238;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .friend-section-tab {
+    color: #FFFFFF;
+    font-size: 24px;
   }
 </style>

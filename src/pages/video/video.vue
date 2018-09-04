@@ -1,5 +1,5 @@
 <template>
-  <div class="find-wrapper">
+  <div class="video-wrapper">
     <v-header page="video" placeholder="猜你喜欢 寂寞寂寞就好"></v-header>
     <wxc-tab-page ref="wxc-tab-page"
               :tab-titles="tabTitles"
