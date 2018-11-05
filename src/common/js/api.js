@@ -26,9 +26,9 @@ export default {
     return new Promise((resolve, reject) => {
       stream.fetch(data, response => {
         if (response.ok && response.status === 200) {
-          return resolve(response.data)
+          resolve(response.data)
         } else {
-          return reject(response.data)
+          reject(response.data)
         }
       })
     })

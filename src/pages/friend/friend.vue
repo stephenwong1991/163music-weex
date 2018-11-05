@@ -3,7 +3,10 @@
     <div class="friend-header">
       <v-image class="icon-left" src="topbar/cm2_topbar_icn_invite@2x.png" @click="leftIcon" />
       <div class="friend-header-tab">
-        <text v-for="(item, index) in tab" :key="index" :class="['tab-name', currentTab === index && 'tab-active']">{{ item.name }}</text>
+        <text v-for="(item, index) in tab"
+              :key="index"
+              @click="toggleTab(index)"
+              :class="['tab-name', currentTab === index && 'tab-active']">{{ item.name }}</text>
       </div>
       <v-image class="icon-playing" src="topbar/cm2_topbar_icn_playing@2x.png" @click.native="playing" />
     </div>
@@ -42,6 +45,9 @@ export default {
   },
   methods: {
     init () {
+    },
+    toggleTab (index) {
+      this.currentTab = index
     },
     playing () {
     }

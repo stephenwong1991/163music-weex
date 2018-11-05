@@ -6,6 +6,10 @@
         <div class="song-detail" v-for="(item, index) in songList" :key="index" v-if="index < 6">
           <v-image class="image" :src="item.picUrl"></v-image>
           <text class="desc">{{ item.name }}</text>
+          <div class="play-count">
+            <v-image class="play-count-icon" :src="'cover/cm4_cover_icn_music.png'"></v-image>
+            <text class="play-count-text">{{ item.playCount | calcNum }}</text>
+          </div>
         </div>
       </div>
     </div>
@@ -28,6 +32,15 @@ export default {
   },
   components: {
     VImage
+  },
+  filters: {
+    calcNum (num) {
+      let sgin = 10 * 10 * 10 * 10
+      if (Number(num) > sgin) {
+        return parseInt(Number(num) / sgin) + '万'
+      }
+      return num
+    }
   }
 }
 </script>
@@ -47,6 +60,27 @@ export default {
 
   .song-detail {
     margin-bottom: 37px;
+    position: relative;
+  }
+
+  .play-count {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #ffffff;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .play-count-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  .play-count-text {
+    font-size: 22px;
+    color: #ffffff;
   }
 
   .image {

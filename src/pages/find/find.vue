@@ -8,7 +8,7 @@
       <scroller class="find-scroller"
                 v-for="(item, index) in tabList"
                 :key="index"
-                ref="scroll"
+                ref="scroll"  
                 :style="{ height: parseInt(contentStyle.height) - tabStyles.height + 'px' }">
         <div class="item-container">
           <div class="find-content-mask"></div>
