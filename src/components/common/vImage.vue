@@ -42,7 +42,8 @@ export default {
         return src
       }
       // return `http://192.168.1.11:8081/src/assets/images/${src}` // for test
-      return `${getHost()}/src/assets/images/${src}`
+      // return `${getHost()}/src/assets/images/${src}`
+      return `${getHost()}/163music-weex/src/assets/images/${src}`
     }
   }
 }

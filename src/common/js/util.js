@@ -8,7 +8,7 @@
 export const getHost = () => {
   let host = ''
   let regex = /https?:\/\/([^/]+)/i
-  let match = weex.config.bundleUrl.match(regex)
+  let match = (typeof weex !== 'undefined' ? weex.config.bundleUrl : window.location.href).match(regex)
 
   if (typeof match !== 'undefined' && match !== null) {
     host = match[0]
