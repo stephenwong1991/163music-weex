@@ -483,7 +483,7 @@ Object.defineProperty(exports, "__esModule", {
 var getHost = exports.getHost = function getHost() {
   var host = '';
   var regex = /https?:\/\/([^/]+)/i;
-  var match = weex.config.bundleUrl.match(regex);
+  var match = (typeof weex !== 'undefined' ? weex.config.bundleUrl : window.location.href).match(regex);
 
   if (typeof match !== 'undefined' && match !== null) {
     host = match[0];
@@ -666,7 +666,8 @@ exports.default = {
         return src;
       }
       // return `http://192.168.1.11:8081/src/assets/images/${src}` // for test
-      return (0, _util.getHost)() + '/src/assets/images/' + src;
+      // return `${getHost()}/src/assets/images/${src}`
+      return (0, _util.getHost)() + '/163music-weex/src/assets/images/' + src;
     }
   }
 }; //
@@ -4581,7 +4582,6 @@ exports.default = {
       this.tabList = [].concat(_toConsumableArray(Array(this.tabTitles.length).keys())).map(function (i) {
         return [];
       });
-      console.log(this.tabList);
       this.personalizedMV();
     },
     wxcTabPageCurrentTabSelected: function wxcTabPageCurrentTabSelected(e) {

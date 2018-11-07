@@ -1107,7 +1107,7 @@ Object.defineProperty(exports, "__esModule", {
 var getHost = exports.getHost = function getHost() {
   var host = '';
   var regex = /https?:\/\/([^/]+)/i;
-  var match = weex.config.bundleUrl.match(regex);
+  var match = (typeof weex !== 'undefined' ? weex.config.bundleUrl : window.location.href).match(regex);
 
   if (typeof match !== 'undefined' && match !== null) {
     host = match[0];
@@ -20212,7 +20212,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -20266,7 +20266,8 @@ exports.default = {
         return src;
       }
       // return `http://192.168.1.11:8081/src/assets/images/${src}` // for test
-      return (0, _util.getHost)() + '/src/assets/images/' + src;
+      // return `${getHost()}/src/assets/images/${src}`
+      return (0, _util.getHost)() + '/163music-weex/src/assets/images/' + src;
     }
   }
 }; //
@@ -24186,7 +24187,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       refInFor: true,
       staticClass: "find-scroller",
       style: ({
-        height: _vm._px2rem(_vm._px2rem(parseInt(_vm.contentStyle.height) - _vm.tabStyles.height + 'px', 75), 75)
+        height: _vm._px2rem(parseInt(_vm.contentStyle.height) - _vm.tabStyles.height + 'px', 75)
       }),
       attrs: {}
     }, [_c('div', {
@@ -24415,7 +24416,6 @@ exports.default = {
       this.tabList = [].concat(_toConsumableArray(Array(this.tabTitles.length).keys())).map(function (i) {
         return [];
       });
-      console.log(this.tabList);
       this.personalizedMV();
     },
     wxcTabPageCurrentTabSelected: function wxcTabPageCurrentTabSelected(e) {
@@ -24503,7 +24503,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('list', {
       staticClass: "list",
       style: ({
-        height: _vm._px2rem(parseInt(_vm.contentStyle.height) - _vm.tabStyles.height + 'px', 75)
+        height: _vm._px2rem(_vm._px2rem(parseInt(_vm.contentStyle.height) - _vm.tabStyles.height + 'px', 75), 75)
       }),
       attrs: {}
     }, _vm._l((_vm.personalizedMVList), function(mv, index) {
